@@ -80,6 +80,11 @@ export default function CleaningInquiryForm() {
   const hasReferral = form.watch("hasReferral");
   const clutterLevel = form.watch("clutterLevel");
 
+  // Handle commercial redirect
+  if (propertyType === "commercial") {
+    setLocation("/commercial");
+  }
+
   const validateStep = async (step: number): Promise<boolean> => {
     const fieldsToValidate: Record<number, (keyof CleaningInquiry)[]> = {
       1: ["propertyType"],
@@ -114,12 +119,6 @@ export default function CleaningInquiryForm() {
   const onSubmit = (data: CleaningInquiry) => {
     submitMutation.mutate(data);
   };
-
-  // Commercial redirect
-  if (propertyType === "commercial") {
-    setLocation("/commercial");
-    return null;
-  }
 
   return (
     <div className="min-h-screen bg-background py-8 px-4 sm:px-6 lg:px-8">
