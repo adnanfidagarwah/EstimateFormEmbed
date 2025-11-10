@@ -1,0 +1,248 @@
+✅ Refined Prompt: Multi-Step Cleaning Service Inquiry Form
+
+Goal:
+Build a fully responsive multi-step residential cleaning service inquiry form with modern UI/UX. The form should collect detailed information across multiple steps and submit all data to a server-side script that sends the results via SMTP email.
+
+✅ 1. General Requirements
+Design & UI
+
+Clean, modern theme (purple/white/minimal/minimal shadow).
+
+Header text:
+
+“We create tailored cleaning solutions for you.”
+
+“The industry’s most trusted cleaning expert”
+
+“Live Agents — Free Estimates”
+
+Progress bar or step indicator across all steps.
+
+Validation on each step before moving forward.
+
+Smooth transitions between steps.
+
+Tech Stack
+
+HTML + CSS + JavaScript (front-end)
+
+PHP / Node / Python (any server language)
+
+SMTP for final email delivery
+
+Google Places API for address autocomplete
+
+✅ 2. Form Steps & Fields
+Step 1 — Property Type
+
+Residential Types (Radio):
+
+Single Family
+
+Townhouse / Condo
+
+Apartment
+
+Commercial Option:
+
+"Commercial" (redirect to a simplified contact form)
+
+Step 2 — Property Address (Residential Only)
+
+Fields:
+
+Street Address (Autocomplete required)
+
+City (Auto-fill)
+
+State (Auto-fill)
+
+Zip Code (Auto-fill)
+
+Google Places Autocomplete Required
+
+Step 3 — Type of Cleaning
+
+Radio — Required
+
+Standard
+
+Deep
+
+Move-In / Move-Out
+
+Step 4 — Home Condition
+A. Current Condition (Radio — Required)
+
+Level 1 — Light
+
+Level 2 — Moderate
+
+Level 3 — Heavy
+
+Level 4 — Very Heavy
+
+Add note:
+
+“This helps us estimate time and price. No judgment.”
+
+B. Clutter Level
+
+Range slider (1–10)
+
+Step 5 — Add-On Services
+
+Checkbox List:
+
+Interior Oven
+
+Interior Fridge
+
+Dishes
+
+Interior Windows
+
+Baseboards
+
+Wall Spot Cleaning
+
+Patio / Balcony
+
+Pet Hair Removal
+
+Textarea:
+
+“Let us know if you have any specific requests”
+
+Step 6 — Scheduling
+
+Fields:
+
+Preferred Cleaning Date (Future-only date picker)
+
+Preferred Time (Radio):
+
+Morning (8am–12pm)
+
+Afternoon (12pm–4pm)
+
+Any Pets? (Yes/No radio)
+
+Recurring Basis (Optional):
+
+One-Time
+
+Weekly
+
+Bi-Weekly
+
+Monthly
+
+Step 7 — Contact Information
+
+Fields:
+
+First Name (required)
+
+Last Name (required)
+
+Phone Number (required)
+
+Email Address (required)
+
+Referral Question
+
+Radio: Yes / No
+
+If Yes, show text input for referral name
+
+Preferred Method of Contact
+
+Text
+
+Call
+
+Email
+
+No Preference
+
+Checkboxes:
+
+Newsletter Opt-in
+
+Required: “I agree to the Privacy Policy”
+
+Submit Button: “Submit Application”
+
+✅ 3. Backend Requirements
+Validation
+
+Sanitize all inputs
+
+Validate required fields
+
+Reject empty or invalid email/phone/date
+
+Email Settings (SMTP)
+
+Use secure SMTP credentials (not stored client-side)
+
+Subject format:
+“NEW Cleaning Quote Request: [Property Type] — [City]”
+
+Send to: info@clientdomain.com (or provided email)
+
+Email Body Structure (HTML or plaintext)
+--- NEW CLEANING INQUIRY ---
+
+I. CUSTOMER INFO
+Name: [First] [Last]
+Phone: [Phone]
+Email: [Email]
+Preferred Contact: [Value]
+Referred By: [Value]
+Newsletter: [Yes/No]
+
+II. PROPERTY DETAILS
+Type: [Value]
+Address: [Street, City, State, Zip]
+Cleaning Type: [Value]
+
+III. CONDITION & ADD-ONS
+Home Condition: [Level]
+Clutter Level: [1-10]
+Selected Add-Ons:
+- Oven: [Yes/No]
+- Fridge: [Yes/No]
+… (list all)
+Specific Requests: [Text]
+
+IV. SCHEDULING
+Preferred Date: [Date]
+Preferred Time: [Time]
+Pets: [Yes/No]
+Recurring: [Value]
+
+--- END ---
+
+Success Message
+
+“Thank you! Your tailored cleaning solution request has been submitted. A live agent will contact you shortly.”
+
+Error Handling
+
+Display generic user-friendly error message
+
+Log technical errors server-side
+
+✅ 4. Deliverables
+
+Fully coded multi-step front-end form
+
+Integrated Google Places autocomplete
+
+Server-side script (PHP/Node/Python)
+
+SMTP email send functionality
+
+Success / Error UI pages
