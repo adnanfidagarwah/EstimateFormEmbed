@@ -64,6 +64,65 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Google Places Autocomplete Endpoint
+  app.get("/api/places/autocomplete", async (req, res) => {
+    try {
+      const { input } = req.query;
+      
+      if (!input || typeof input !== "string") {
+        return res.status(400).json({ error: "Input parameter is required" });
+      }
+
+      const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+      if (!apiKey) {
+        return res.status(500).json({ error: "Google Places API key not configured" });
+      }
+
+      const url = new URL("https://maps.googleapis.com/maps/api/place/autocomplete/json");
+      url.searchParams.append("input", input);
+      url.searchParams.append("types", "address");
+      url.searchParams.append("components", "country:us");
+      url.searchParams.append("key", apiKey);
+
+      const response = await fetch(url.toString());
+      const data = await response.json();
+
+      res.json(data);
+    } catch (error) {
+      console.error("Error fetching autocomplete suggestions:", error);
+      res.status(500).json({ error: "Failed to fetch suggestions" });
+    }
+  });
+
+  // Google Places Details Endpoint
+  app.get("/api/places/details", async (req, res) => {
+    try {
+      const { place_id } = req.query;
+      
+      if (!place_id || typeof place_id !== "string") {
+        return res.status(400).json({ error: "Place ID parameter is required" });
+      }
+
+      const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+      if (!apiKey) {
+        return res.status(500).json({ error: "Google Places API key not configured" });
+      }
+
+      const url = new URL("https://maps.googleapis.com/maps/api/place/details/json");
+      url.searchParams.append("place_id", place_id);
+      url.searchParams.append("fields", "address_components");
+      url.searchParams.append("key", apiKey);
+
+      const response = await fetch(url.toString());
+      const data = await response.json();
+
+      res.json(data);
+    } catch (error) {
+      console.error("Error fetching place details:", error);
+      res.status(500).json({ error: "Failed to fetch place details" });
+    }
+  });
+
   const httpServer = createServer(app);
 
   return httpServer;
