@@ -183,10 +183,10 @@ export default function CleaningInquiryForm() {
                     value={form.watch("streetAddress")}
                     onChange={(value) => form.setValue("streetAddress", value)}
                     onPlaceSelected={(place) => {
-                      form.setValue("streetAddress", place.streetAddress);
-                      form.setValue("city", place.city);
-                      form.setValue("state", place.state);
-                      form.setValue("zipCode", place.zipCode);
+                      form.setValue("streetAddress", place.streetAddress, { shouldValidate: true });
+                      form.setValue("city", place.city, { shouldValidate: true });
+                      form.setValue("state", place.state, { shouldValidate: true });
+                      form.setValue("zipCode", place.zipCode, { shouldValidate: true });
                     }}
                     placeholder="123 Main Street"
                     className="mt-1"
@@ -201,7 +201,8 @@ export default function CleaningInquiryForm() {
                     <Input
                       id="city"
                       data-testid="input-city"
-                      {...form.register("city")}
+                      value={form.watch("city")}
+                      onChange={(e) => form.setValue("city", e.target.value)}
                       placeholder="Austin"
                       className="mt-1"
                     />
@@ -214,7 +215,8 @@ export default function CleaningInquiryForm() {
                     <Input
                       id="state"
                       data-testid="input-state"
-                      {...form.register("state")}
+                      value={form.watch("state")}
+                      onChange={(e) => form.setValue("state", e.target.value)}
                       placeholder="TX"
                       className="mt-1"
                     />
@@ -227,7 +229,8 @@ export default function CleaningInquiryForm() {
                     <Input
                       id="zipCode"
                       data-testid="input-zip-code"
-                      {...form.register("zipCode")}
+                      value={form.watch("zipCode")}
+                      onChange={(e) => form.setValue("zipCode", e.target.value)}
                       placeholder="78701"
                       className="mt-1"
                     />
