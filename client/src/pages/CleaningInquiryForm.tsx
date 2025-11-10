@@ -13,6 +13,7 @@ import { FormStep } from "@/components/FormStep";
 import { PropertyTypeCard } from "@/components/PropertyTypeCard";
 import { CleaningTypeOption } from "@/components/CleaningTypeOption";
 import { ConditionLevel } from "@/components/ConditionLevel";
+import { AddressAutocomplete } from "@/components/AddressAutocomplete";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
@@ -172,14 +173,21 @@ export default function CleaningInquiryForm() {
 
           {/* Step 2: Property Address */}
           {currentStep === 2 && (
-            <FormStep title="Property Address" subtitle="Enter your property location" stepNumber={2}>
+            <FormStep title="Property Address" subtitle="Start typing your address for suggestions" stepNumber={2}>
               <div className="space-y-4">
                 <div>
                   <Label htmlFor="streetAddress">Street Address *</Label>
-                  <Input
+                  <AddressAutocomplete
                     id="streetAddress"
                     data-testid="input-street-address"
-                    {...form.register("streetAddress")}
+                    value={form.watch("streetAddress")}
+                    onChange={(value) => form.setValue("streetAddress", value)}
+                    onPlaceSelected={(place) => {
+                      form.setValue("streetAddress", place.streetAddress);
+                      form.setValue("city", place.city);
+                      form.setValue("state", place.state);
+                      form.setValue("zipCode", place.zipCode);
+                    }}
                     placeholder="123 Main Street"
                     className="mt-1"
                   />
