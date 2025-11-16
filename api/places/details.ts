@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { methodNotAllowedResponse } from "../../backend/http";
-import { getPlaceDetails } from "../../backend/places";
+import { methodNotAllowedResponse } from "../../backend/http.js";
+import { getPlaceDetails } from "../../backend/places.js";
 
 export default async function handler(
   req: VercelRequest,

@@ -1,10 +1,10 @@
 import type { Handler } from "@netlify/functions";
-import { submitCleaningInquiry } from "../../backend/actions";
+import { submitCleaningInquiry } from "../../backend/actions.js";
 import {
   formErrorResponse,
   methodNotAllowedResponse,
   parseJsonBody,
-} from "../../backend/http";
+} from "../../backend/http.js";
 
 const json = (
   statusCode: number,

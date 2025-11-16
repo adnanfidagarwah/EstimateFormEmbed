@@ -5,7 +5,7 @@ import {
 import {
   sendCleaningInquiryEmail,
   sendCommercialInquiryEmail,
-} from "./email";
+} from "./email.js";
 
 type FormSuccessResponse = {
   success: true;

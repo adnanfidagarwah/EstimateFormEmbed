@@ -1,6 +1,6 @@
 import type { Handler } from "@netlify/functions";
-import { methodNotAllowedResponse } from "../../backend/http";
-import { getPlaceDetails } from "../../backend/places";
+import { methodNotAllowedResponse } from "../../backend/http.js";
+import { getPlaceDetails } from "../../backend/places.js";
 
 const json = (
   statusCode: number,

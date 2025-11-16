@@ -1,10 +1,10 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { submitCommercialInquiry } from "../backend/actions";
+import { submitCommercialInquiry } from "../backend/actions.js";
 import {
   formErrorResponse,
   methodNotAllowedResponse,
   parseJsonBody,
-} from "../backend/http";
+} from "../backend/http.js";
 
 export default async function handler(
   req: VercelRequest,
