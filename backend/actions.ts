@@ -1,7 +1,7 @@
 import {
   cleaningInquirySchema,
   commercialInquirySchema,
-} from "@shared/schema";
+} from "../shared/schema.js";
 import {
   sendCleaningInquiryEmail,
   sendCommercialInquiryEmail,

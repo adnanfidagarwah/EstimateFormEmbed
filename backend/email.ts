@@ -1,5 +1,8 @@
 import nodemailer from "nodemailer";
-import type { CleaningInquiry, CommercialInquiry } from "@shared/schema";
+import type {
+  CleaningInquiry,
+  CommercialInquiry,
+} from "../shared/schema.js";
 
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
