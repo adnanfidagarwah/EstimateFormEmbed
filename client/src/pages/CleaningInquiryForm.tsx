@@ -14,7 +14,7 @@ import { PropertyTypeCard } from "@/components/PropertyTypeCard";
 import { CleaningTypeOption } from "@/components/CleaningTypeOption";
 import { ConditionLevel } from "@/components/ConditionLevel";
 import { AddressAutocomplete } from "@/components/AddressAutocomplete";
-import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { useToast } from "@/hooks/use-toast";
@@ -124,20 +124,6 @@ export default function CleaningInquiryForm() {
   return (
     <div className="min-h-screen bg-background py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-            <Sparkles className="w-4 h-4" />
-            <span>Live Agents — Free Estimates</span>
-          </div>
-          <h1 className="text-4xl font-bold text-foreground mb-2">
-            We create tailored cleaning solutions for you
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            The industry's most trusted cleaning expert
-          </p>
-        </div>
-
         {/* Progress Indicator */}
         <ProgressIndicator currentStep={currentStep} totalSteps={TOTAL_STEPS} />
 
