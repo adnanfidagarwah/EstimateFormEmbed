@@ -1,19 +1,10 @@
 {
   "version": 2,
-  "functions": {
-    "api/server.js": {
-      "runtime": "nodejs18.x",
-      "includeFiles": "dist/**"
-    }
-  },
   "routes": [
+    { "handle": "filesystem" },
     {
-      "src": "/api/(.*)",
-      "dest": "api/server.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "src": "/.*",
+      "dest": "/index.html"
     }
   ],
   "buildCommand": "npm run build",
