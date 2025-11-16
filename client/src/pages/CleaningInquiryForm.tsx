@@ -643,7 +643,7 @@ export default function CleaningInquiryForm() {
                 type="button"
                 onClick={nextStep}
                 data-testid="button-next"
-                className="flex items-center gap-2 ml-auto"
+                className="ml-auto min-w-[150px] justify-center px-8 border-0 shadow-none"
                 disabled={submitMutation.isPending}
               >
                 Next
@@ -654,7 +654,7 @@ export default function CleaningInquiryForm() {
                 type="submit"
                 data-testid="button-submit"
                 disabled={submitMutation.isPending}
-                className="ml-auto"
+                className="ml-auto min-w-[180px] justify-center px-8 border-0 shadow-none"
               >
                 {submitMutation.isPending ? "Submitting..." : "Submit Application"}
               </Button>
