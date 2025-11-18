@@ -248,6 +248,16 @@ export default function CleaningInquiryForm() {
                   selected={form.watch("cleaningType") === "move_in_out"}
                   onClick={() => form.setValue("cleaningType", "move_in_out")}
                 />
+                <CleaningTypeOption
+                  type="post_construction"
+                  selected={form.watch("cleaningType") === "post_construction"}
+                  onClick={() => form.setValue("cleaningType", "post_construction")}
+                />
+                <CleaningTypeOption
+                  type="specialized_rough_final"
+                  selected={form.watch("cleaningType") === "specialized_rough_final"}
+                  onClick={() => form.setValue("cleaningType", "specialized_rough_final")}
+                />
               </div>
             </FormStep>
           )}
@@ -338,7 +348,7 @@ export default function CleaningInquiryForm() {
                   ))}
                 </div>
                 <div>
-                  <Label htmlFor="specificRequests" className="mb-2 block">Specific Requests</Label>
+                  <Label htmlFor="specificRequests" className="mb-2 block">Additional Comments</Label>
                   <Textarea
                     id="specificRequests"
                     data-testid="textarea-specific-requests"
@@ -609,12 +619,13 @@ export default function CleaningInquiryForm() {
                       onCheckedChange={(checked) => form.setValue("privacyPolicyAgreed", checked as boolean)}
                     />
                     <Label htmlFor="privacyPolicyAgreed" className="cursor-pointer text-sm leading-relaxed">
-                      I agree to the Privacy Policy *
+                      <span className="inline-flex items-center gap-1">
+                        I agree to the Privacy Policy
+                        <span className="text-destructive font-semibold" aria-hidden="true">*</span>
+                        <span className="text-xs text-destructive font-medium">Required</span>
+                      </span>
                     </Label>
                   </div>
-                  {form.formState.errors.privacyPolicyAgreed && (
-                    <p className="text-sm text-destructive">{form.formState.errors.privacyPolicyAgreed.message}</p>
-                  )}
                 </div>
               </div>
             </FormStep>
@@ -656,7 +667,7 @@ export default function CleaningInquiryForm() {
                 disabled={submitMutation.isPending}
                 className="ml-auto min-w-[180px] justify-center px-8 border-0 shadow-none"
               >
-                {submitMutation.isPending ? "Submitting..." : "Submit Application"}
+                {submitMutation.isPending ? "Submitting..." : "Submit Inquiry"}
               </Button>
             )}
           </div>

@@ -26,6 +26,8 @@ function formatCleaningInquiryEmail(data: CleaningInquiry): string {
     standard: "Standard Cleaning",
     deep: "Deep Cleaning",
     move_in_out: "Move-In / Move-Out",
+    post_construction: "Post Construction",
+    specialized_rough_final: "Specialized Rough or Final Clean",
   };
 
   const conditionLabels = {

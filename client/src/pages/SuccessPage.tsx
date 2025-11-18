@@ -18,11 +18,12 @@ export default function SuccessPage() {
           </h1>
           
           <p className="text-lg text-foreground mb-2">
-            Your tailored cleaning solution request has been submitted.
+            Your tailored cleaning solution request - provide you with a free estimate.
           </p>
           
           <p className="text-muted-foreground mb-8">
-            A live agent will contact you shortly to discuss your cleaning needs and provide you with a free estimate.
+            A live agent will review your details and contact you within 24 hours to discuss your needs and provide a free estimate.
+
           </p>
 
           <div className="bg-primary/5 border border-primary/20 rounded-md p-4 mb-8">
@@ -30,9 +31,9 @@ export default function SuccessPage() {
               <strong>What's Next?</strong>
             </p>
             <ul className="text-sm text-muted-foreground mt-2 space-y-1 text-left">
-              <li>• Our team will review your request within 24 hours</li>
-              <li>• We'll contact you via your preferred method</li>
-              <li>• You'll receive a detailed quote and schedule options</li>
+              <li>• We review your request</li>
+              <li>• We contact you via your preferred method</li>
+              <li>• You receive a quote and scheduling options</li>
             </ul>
           </div>
 

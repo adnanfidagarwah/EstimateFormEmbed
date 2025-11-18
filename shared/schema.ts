@@ -12,7 +12,13 @@ export const cleaningInquirySchema = z.object({
   zipCode: z.string().min(1, "ZIP code is required"),
   
   // Step 3: Cleaning Type
-  cleaningType: z.enum(["standard", "deep", "move_in_out"]),
+  cleaningType: z.enum([
+    "standard",
+    "deep",
+    "move_in_out",
+    "post_construction",
+    "specialized_rough_final",
+  ]),
   
   // Step 4: Home Condition
   homeCondition: z.enum(["level_1", "level_2", "level_3", "level_4"]),

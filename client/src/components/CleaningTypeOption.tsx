@@ -1,8 +1,8 @@
-import { Sparkles, Hammer, TruckIcon } from "lucide-react";
+import { Sparkles, Hammer, TruckIcon, HardHat, ClipboardCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface CleaningTypeOptionProps {
-  type: "standard" | "deep" | "move_in_out";
+  type: "standard" | "deep" | "move_in_out" | "post_construction" | "specialized_rough_final";
   selected: boolean;
   onClick: () => void;
 }
@@ -22,6 +22,16 @@ const cleaningConfig = {
     icon: TruckIcon,
     label: "Move-In / Move-Out",
     description: "Complete property preparation"
+  },
+  post_construction: {
+    icon: HardHat,
+    label: "Post Construction",
+    description: "Detailed cleaning after renovation or build"
+  },
+  specialized_rough_final: {
+    icon: ClipboardCheck,
+    label: "Specialized Rough or Final Clean",
+    description: "Rough or final clean tailored to contractor needs"
   }
 };
 
