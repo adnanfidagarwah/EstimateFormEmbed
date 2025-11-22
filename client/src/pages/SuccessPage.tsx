@@ -17,10 +17,6 @@ export default function SuccessPage() {
             Thank You!
           </h1>
           
-          <p className="text-lg text-foreground mb-2">
-            Your tailored cleaning solution request - provide you with a free estimate.
-          </p>
-          
           <p className="text-muted-foreground mb-8">
             A live agent will review your details and contact you within 24 hours to discuss your needs and provide a free estimate.
 
