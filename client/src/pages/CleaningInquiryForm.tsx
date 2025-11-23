@@ -253,11 +253,6 @@ export default function CleaningInquiryForm() {
                   selected={form.watch("cleaningType") === "post_construction"}
                   onClick={() => form.setValue("cleaningType", "post_construction")}
                 />
-                <CleaningTypeOption
-                  type="specialized_rough_final"
-                  selected={form.watch("cleaningType") === "specialized_rough_final"}
-                  onClick={() => form.setValue("cleaningType", "specialized_rough_final")}
-                />
               </div>
             </FormStep>
           )}

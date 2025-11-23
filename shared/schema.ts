@@ -17,7 +17,6 @@ export const cleaningInquirySchema = z.object({
     "deep",
     "move_in_out",
     "post_construction",
-    "specialized_rough_final",
   ]),
   
   // Step 4: Home Condition
