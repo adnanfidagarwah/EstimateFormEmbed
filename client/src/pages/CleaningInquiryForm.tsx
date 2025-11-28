@@ -21,6 +21,17 @@ import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "wouter";
 
 const TOTAL_STEPS = 7;
+type AddOnKey = keyof CleaningInquiry["addOns"];
+const ADD_ON_OPTIONS: { key: AddOnKey; label: string }[] = [
+  { key: "interiorOven", label: "Interior Oven" },
+  { key: "interiorFridge", label: "Interior Fridge" },
+  { key: "dishes", label: "Dishes" },
+  { key: "interiorWindows", label: "Interior Windows" },
+  { key: "baseboards", label: "Baseboards" },
+  { key: "wallSpotCleaning", label: "Wall Spot Cleaning" },
+  { key: "patioBalcony", label: "Patio / Balcony" },
+  { key: "petHairRemoval", label: "Pet Hair Removal" },
+];
 
 export default function CleaningInquiryForm() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -80,6 +91,7 @@ export default function CleaningInquiryForm() {
   const propertyType = form.watch("propertyType");
   const hasReferral = form.watch("hasReferral");
   const clutterLevel = form.watch("clutterLevel");
+  const addOns = form.watch("addOns");
 
   // Handle commercial redirect
   if (propertyType === "commercial") {
@@ -314,32 +326,23 @@ export default function CleaningInquiryForm() {
             <FormStep title="Add-On Services" subtitle="Select any additional services you'd like" stepNumber={5}>
               <div className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {[
-                    { key: "interiorOven", label: "Interior Oven" },
-                    { key: "interiorFridge", label: "Interior Fridge" },
-                    { key: "dishes", label: "Dishes" },
-                    { key: "interiorWindows", label: "Interior Windows" },
-                    { key: "baseboards", label: "Baseboards" },
-                    { key: "wallSpotCleaning", label: "Wall Spot Cleaning" },
-                    { key: "patioBalcony", label: "Patio / Balcony" },
-                    { key: "petHairRemoval", label: "Pet Hair Removal" },
-                  ].map(({ key, label }) => (
-                    <div
+                  {ADD_ON_OPTIONS.map(({ key, label }) => (
+                    <label
                       key={key}
-                      className="flex items-center space-x-3 p-3 rounded-md border border-border bg-card hover-elevate"
+                      htmlFor={key}
+                      className="flex items-center space-x-3 p-3 rounded-md border border-border bg-card hover-elevate cursor-pointer"
                     >
                       <Checkbox
                         id={key}
                         data-testid={`checkbox-${key}`}
-                        checked={form.watch(`addOns.${key as keyof CleaningInquiry["addOns"]}`)}
+                        checked={addOns[key]}
                         onCheckedChange={(checked) =>
-                          form.setValue(`addOns.${key as keyof CleaningInquiry["addOns"]}`, checked as boolean)
+                          form.setValue(`addOns.${key}`, checked === true)
                         }
+                        className="pointer-events-none"
                       />
-                      <Label htmlFor={key} className="cursor-pointer flex-1 text-sm font-medium">
-                        {label}
-                      </Label>
-                    </div>
+                      <span className="flex-1 text-sm font-medium">{label}</span>
+                    </label>
                   ))}
                 </div>
                 <div>

@@ -22,17 +22,6 @@ export default function SuccessPage() {
 
           </p>
 
-          <div className="bg-primary/5 border border-primary/20 rounded-md p-4 mb-8">
-            <p className="text-sm text-foreground">
-              <strong>What's Next?</strong>
-            </p>
-            <ul className="text-sm text-muted-foreground mt-2 space-y-1 text-left">
-              <li>• We review your request</li>
-              <li>• We contact you via your preferred method</li>
-              <li>• You receive a quote and scheduling options</li>
-            </ul>
-          </div>
-
           <Button
             onClick={() => setLocation("/")}
             data-testid="button-back-home"
