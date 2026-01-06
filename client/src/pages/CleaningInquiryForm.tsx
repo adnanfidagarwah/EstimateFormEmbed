@@ -650,9 +650,10 @@ export default function CleaningInquiryForm() {
             {currentStep < TOTAL_STEPS ? (
               <Button
                 type="button"
+                variant="gold"
                 onClick={nextStep}
                 data-testid="button-next"
-                className="ml-auto min-w-[150px] justify-center px-8 border-0 shadow-none"
+                className="ml-auto min-w-[150px] justify-center px-8"
                 disabled={submitMutation.isPending}
               >
                 Next
