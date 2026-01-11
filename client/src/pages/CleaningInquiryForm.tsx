@@ -144,7 +144,7 @@ export default function CleaningInquiryForm() {
           {/* Step 1: Property Type */}
           {currentStep === 1 && (
             <FormStep title="Choose Your Property Type" stepNumber={1}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4">
                 <PropertyTypeCard
                   type="single_family"
                   selected={propertyType === "single_family"}
@@ -272,10 +272,10 @@ export default function CleaningInquiryForm() {
           {/* Step 4: Home Condition */}
           {currentStep === 4 && (
             <FormStep title="Home Condition" subtitle="This helps us estimate time and price. No judgment." stepNumber={4}>
-              <div className="space-y-6">
-                <div className="space-y-3">
-                  <Label className="text-base font-semibold">Current Condition *</Label>
-                  <div className="space-y-2">
+              <div className="space-y-4">
+                <div className="space-y-2.5">
+                  <Label className="text-sm font-semibold">Current Condition *</Label>
+                  <div className="space-y-1.5">
                     <ConditionLevel
                       level="level_1"
                       selected={form.watch("homeCondition") === "level_1"}
@@ -299,9 +299,9 @@ export default function CleaningInquiryForm() {
                   </div>
                 </div>
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <Label className="text-base font-semibold">Clutter Level</Label>
-                    <span className="text-2xl font-bold text-primary" data-testid="clutter-level-value">{clutterLevel}</span>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <Label className="text-sm font-semibold">Clutter Level</Label>
+                    <span className="text-xl font-bold text-primary" data-testid="clutter-level-value">{clutterLevel}</span>
                   </div>
                   <Slider
                     value={[clutterLevel]}
@@ -309,10 +309,10 @@ export default function CleaningInquiryForm() {
                     min={1}
                     max={10}
                     step={1}
-                    className="mt-2"
+                    className="mt-1.5"
                     data-testid="slider-clutter-level"
                   />
-                  <div className="flex justify-between text-xs text-muted-foreground mt-2">
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1.5">
                     <span>Minimal</span>
                     <span>Maximum</span>
                   </div>
@@ -325,7 +325,7 @@ export default function CleaningInquiryForm() {
           {currentStep === 5 && (
             <FormStep title="Add-On Services" subtitle="Select any additional services you'd like" stepNumber={5}>
               <div className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-3">
                   {ADD_ON_OPTIONS.map(({ key, label }) => (
                     <label
                       key={key}
@@ -363,7 +363,7 @@ export default function CleaningInquiryForm() {
           {/* Step 6: Scheduling */}
           {currentStep === 6 && (
             <FormStep title="Scheduling" subtitle="When would you like us to clean?" stepNumber={6}>
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div>
                   <Label htmlFor="preferredDate">Preferred Cleaning Date *</Label>
                   <Input
@@ -379,38 +379,38 @@ export default function CleaningInquiryForm() {
                   )}
                 </div>
                 <div>
-                  <Label className="mb-3 block font-semibold">Preferred Time *</Label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <Label className="mb-2 block font-semibold">Preferred Time *</Label>
+                  <div className="grid grid-cols-2 gap-3">
                     <button
                       type="button"
                       onClick={() => form.setValue("preferredTime", "morning")}
                       data-testid="time-morning"
-                      className={`p-4 rounded-md border-2 transition-all hover-elevate active-elevate-2 ${
+                      className={`p-3 rounded-md border-2 transition-all hover-elevate active-elevate-2 ${
                         form.watch("preferredTime") === "morning"
                           ? "border-primary bg-primary/5"
                           : "border-border bg-card"
                       }`}
                     >
-                      <div className="font-semibold">Morning</div>
-                      <div className="text-sm text-muted-foreground">8am - 12pm</div>
+                      <div className="font-semibold leading-tight">Morning</div>
+                      <div className="text-sm text-muted-foreground leading-tight">8am - 12pm</div>
                     </button>
                     <button
                       type="button"
                       onClick={() => form.setValue("preferredTime", "afternoon")}
                       data-testid="time-afternoon"
-                      className={`p-4 rounded-md border-2 transition-all hover-elevate active-elevate-2 ${
+                      className={`p-3 rounded-md border-2 transition-all hover-elevate active-elevate-2 ${
                         form.watch("preferredTime") === "afternoon"
                           ? "border-primary bg-primary/5"
                           : "border-border bg-card"
                       }`}
                     >
-                      <div className="font-semibold">Afternoon</div>
-                      <div className="text-sm text-muted-foreground">12pm - 4pm</div>
+                      <div className="font-semibold leading-tight">Afternoon</div>
+                      <div className="text-sm text-muted-foreground leading-tight">12pm - 4pm</div>
                     </button>
                   </div>
                 </div>
                 <div>
-                  <Label className="mb-3 block font-semibold">Any Pets?</Label>
+                  <Label className="mb-2 block font-semibold">Any Pets?</Label>
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       type="button"
@@ -439,7 +439,7 @@ export default function CleaningInquiryForm() {
                   </div>
                 </div>
                 <div>
-                  <Label className="mb-3 block font-semibold">Recurring Basis</Label>
+                  <Label className="mb-2 block font-semibold">Recurring Basis</Label>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     {[
                       { value: "one_time", label: "One-Time" },
@@ -452,7 +452,7 @@ export default function CleaningInquiryForm() {
                         type="button"
                         onClick={() => form.setValue("recurringBasis", value as any)}
                         data-testid={`recurring-${value}`}
-                        className={`p-3 rounded-md border-2 transition-all hover-elevate active-elevate-2 text-sm ${
+                        className={`p-2.5 rounded-md border-2 transition-all hover-elevate active-elevate-2 text-sm leading-tight ${
                           form.watch("recurringBasis") === value
                             ? "border-primary bg-primary/5"
                             : "border-border bg-card"
@@ -470,69 +470,77 @@ export default function CleaningInquiryForm() {
           {/* Step 7: Contact Information */}
           {currentStep === 7 && (
             <FormStep title="Contact Information" subtitle="How can we reach you?" stepNumber={7}>
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-2.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <div>
-                    <Label htmlFor="firstName">First Name *</Label>
+                    <div className="flex items-center justify-between gap-2">
+                      <Label htmlFor="firstName">First Name *</Label>
+                      {form.formState.errors.firstName && (
+                        <span className="text-xs text-destructive">{form.formState.errors.firstName.message}</span>
+                      )}
+                    </div>
                     <Input
                       id="firstName"
                       data-testid="input-first-name"
                       {...form.register("firstName")}
-                      className="mt-1"
+                      className="mt-0 h-9 text-sm"
                     />
-                    {form.formState.errors.firstName && (
-                      <p className="text-sm text-destructive mt-1">{form.formState.errors.firstName.message}</p>
-                    )}
                   </div>
                   <div>
-                    <Label htmlFor="lastName">Last Name *</Label>
+                    <div className="flex items-center justify-between gap-2">
+                      <Label htmlFor="lastName">Last Name *</Label>
+                      {form.formState.errors.lastName && (
+                        <span className="text-xs text-destructive">{form.formState.errors.lastName.message}</span>
+                      )}
+                    </div>
                     <Input
                       id="lastName"
                       data-testid="input-last-name"
                       {...form.register("lastName")}
-                      className="mt-1"
+                      className="mt-0 h-9 text-sm"
                     />
-                    {form.formState.errors.lastName && (
-                      <p className="text-sm text-destructive mt-1">{form.formState.errors.lastName.message}</p>
-                    )}
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="phone">Phone Number *</Label>
+                  <div className="flex items-center justify-between gap-2">
+                    <Label htmlFor="phone">Phone Number *</Label>
+                    {form.formState.errors.phone && (
+                      <span className="text-xs text-destructive">{form.formState.errors.phone.message}</span>
+                    )}
+                  </div>
                   <Input
                     id="phone"
                     type="tel"
                     data-testid="input-phone"
                     {...form.register("phone")}
                     placeholder="(555) 123-4567"
-                    className="mt-1"
+                    className="mt-0 h-9 text-sm"
                   />
-                  {form.formState.errors.phone && (
-                    <p className="text-sm text-destructive mt-1">{form.formState.errors.phone.message}</p>
-                  )}
                 </div>
                 <div>
-                  <Label htmlFor="email">Email Address *</Label>
+                  <div className="flex items-center justify-between gap-2">
+                    <Label htmlFor="email">Email Address *</Label>
+                    {form.formState.errors.email && (
+                      <span className="text-xs text-destructive">{form.formState.errors.email.message}</span>
+                    )}
+                  </div>
                   <Input
                     id="email"
                     type="email"
                     data-testid="input-email"
                     {...form.register("email")}
                     placeholder="you@example.com"
-                    className="mt-1"
+                    className="mt-0 h-9 text-sm"
                   />
-                  {form.formState.errors.email && (
-                    <p className="text-sm text-destructive mt-1">{form.formState.errors.email.message}</p>
-                  )}
                 </div>
                 <div>
-                  <Label className="mb-3 block font-semibold">Were you referred by someone?</Label>
-                  <div className="grid grid-cols-2 gap-3 mb-3">
+                  <Label className="mb-1.5 block font-semibold">Were you referred by someone?</Label>
+                  <div className="grid grid-cols-2 gap-3 mb-2">
                     <button
                       type="button"
                       onClick={() => form.setValue("hasReferral", true)}
                       data-testid="referral-yes"
-                      className={`p-3 rounded-md border-2 transition-all hover-elevate active-elevate-2 ${
+                      className={`p-2 rounded-md border-2 transition-all hover-elevate active-elevate-2 ${
                         hasReferral === true
                           ? "border-primary bg-primary/5"
                           : "border-border bg-card"
@@ -547,7 +555,7 @@ export default function CleaningInquiryForm() {
                         form.setValue("referralName", "");
                       }}
                       data-testid="referral-no"
-                      className={`p-3 rounded-md border-2 transition-all hover-elevate active-elevate-2 ${
+                      className={`p-2.5 rounded-md border-2 transition-all hover-elevate active-elevate-2 ${
                         hasReferral === false
                           ? "border-primary bg-primary/5"
                           : "border-border bg-card"
@@ -558,23 +566,25 @@ export default function CleaningInquiryForm() {
                   </div>
                   {hasReferral && (
                     <div>
-                      <Label htmlFor="referralName">Referral Name *</Label>
+                      <div className="flex items-center justify-between gap-2">
+                        <Label htmlFor="referralName">Referral Name *</Label>
+                        {form.formState.errors.referralName && (
+                          <span className="text-xs text-destructive">{form.formState.errors.referralName.message}</span>
+                        )}
+                      </div>
                       <Input
                         id="referralName"
                         data-testid="input-referral-name"
                         {...form.register("referralName")}
                         placeholder="Who referred you?"
-                        className="mt-1"
+                        className="mt-0 h-9 text-sm"
                       />
-                      {form.formState.errors.referralName && (
-                        <p className="text-sm text-destructive mt-1">{form.formState.errors.referralName.message}</p>
-                      )}
                     </div>
                   )}
                 </div>
                 <div>
-                  <Label className="mb-3 block font-semibold">Preferred Method of Contact</Label>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <Label className="mb-1 block font-semibold">Preferred Method of Contact</Label>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                     {[
                       { value: "text", label: "Text" },
                       { value: "call", label: "Call" },
@@ -586,7 +596,7 @@ export default function CleaningInquiryForm() {
                         type="button"
                         onClick={() => form.setValue("preferredContact", value as any)}
                         data-testid={`contact-${value}`}
-                        className={`p-3 rounded-md border-2 transition-all hover-elevate active-elevate-2 text-sm ${
+                        className={`p-2 rounded-md border-2 transition-all hover-elevate active-elevate-2 text-sm leading-tight ${
                           form.watch("preferredContact") === value
                             ? "border-primary bg-primary/5"
                             : "border-border bg-card"
@@ -597,27 +607,27 @@ export default function CleaningInquiryForm() {
                     ))}
                   </div>
                 </div>
-                <div className="space-y-3 pt-4 border-t border-border">
-                  <div className="flex items-start space-x-3">
+                <div className="space-y-2 pt-2.5 border-t border-border">
+                  <div className="flex items-start space-x-2">
                     <Checkbox
                       id="newsletterOptIn"
                       data-testid="checkbox-newsletter"
                       checked={form.watch("newsletterOptIn")}
                       onCheckedChange={(checked) => form.setValue("newsletterOptIn", checked as boolean)}
                     />
-                    <Label htmlFor="newsletterOptIn" className="cursor-pointer text-sm leading-relaxed">
+                    <Label htmlFor="newsletterOptIn" className="cursor-pointer text-sm leading-snug">
                       I'd like to receive newsletters and updates about cleaning tips and special offers
                     </Label>
                   </div>
-                  <div className="flex items-start space-x-3">
+                  <div className="flex items-start space-x-2">
                     <Checkbox
                       id="privacyPolicyAgreed"
                       data-testid="checkbox-privacy-policy"
                       checked={form.watch("privacyPolicyAgreed")}
                       onCheckedChange={(checked) => form.setValue("privacyPolicyAgreed", checked as boolean)}
                     />
-                    <Label htmlFor="privacyPolicyAgreed" className="cursor-pointer text-sm leading-relaxed">
-                      <span className="inline-flex items-center gap-1">
+                    <Label htmlFor="privacyPolicyAgreed" className="cursor-pointer text-sm leading-snug">
+                      <span className="inline-flex items-center gap-0.5">
                         I agree to the Privacy Policy
                         <span className="text-destructive font-semibold" aria-hidden="true">*</span>
                         <span className="text-xs text-destructive font-medium">Required</span>
