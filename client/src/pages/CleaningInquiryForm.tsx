@@ -627,8 +627,16 @@ export default function CleaningInquiryForm() {
                       onCheckedChange={(checked) => form.setValue("privacyPolicyAgreed", checked as boolean)}
                     />
                     <Label htmlFor="privacyPolicyAgreed" className="cursor-pointer text-sm leading-snug">
-                      <span className="inline-flex items-center gap-0.5">
-                        I agree to the Privacy Policy
+                      <span className="inline-flex items-center gap-1">
+                        I agree to the
+                        <a
+                          href="https://clairvecleaning.com/privacy-policy/"
+                          className="text-blue-600 underline hover:text-blue-700"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Privacy Policy
+                        </a>
                         <span className="text-destructive font-semibold" aria-hidden="true">*</span>
                         <span className="text-xs text-destructive font-medium">Required</span>
                       </span>
